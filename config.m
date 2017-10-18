@@ -24,6 +24,6 @@ roi_dir = '/Volumes/psych-cog/dsnlab/FP/BDX_univariate/ROI/marsbar';
 fx_file = 'fx/fx_standard/SPM.mat';
 output_dir = '/Volumes/psych-cog/dsnlab/FP/BDX_univariate/timecourses';
 
-%% Add paths
+% Add paths
 spm_path = '/Users/Shared/spm12';
 marsbar_path = '/Users/Shared/spm12/toolbox/marsbar-0.44';
