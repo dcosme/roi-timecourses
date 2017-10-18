@@ -87,10 +87,12 @@ datatable = cell2table(cell(0,5), 'VariableNames', {'subjectID', 'roi', 'conditi
 
 for i = 1:numel(subjects)
     for j = 1:numel(rois)
-        % Create separate tables for condition, subject, roi, and timecourse
+        % Define number of events and TRs
         events = {timecourses.(char(subjects(i))).(char(rois(j))).events(:).name};
         ntr = fir_length / tr_length; 
-      
+        
+        % Create separate tables for subject, roi, condition, tr, and 
+        % timecourse, and join with datatable
         for k = 1:length(events)
             sub = table(repmat(subjects(i),ntr,1), 'VariableNames', {'subjectID'});
             cond = table(repmat(events(k),ntr,1), 'VariableNames', {'condition'});
