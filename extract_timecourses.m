@@ -22,12 +22,14 @@
 % http://marsbar.sourceforge.net/marsbar.pdf
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Add paths
-addpath('/Users/danicosme/Documents/MATLAB/spm12');
-addpath(genpath('/Users/danicosme/Documents/MATLAB/spm12/toolbox/marsbar-0.44'));
-
-%% Source config file
+%% Change directory and source config file
+tmp = matlab.desktop.editor.getActive;
+cd(fileparts(tmp.Filename)); clear tmp
 config
+
+%% Add paths
+addpath(spm_path);
+addpath(genpath(marsbar_path));
 
 %% Loop through subjects and ROIs and extract time courses
 for i = 1:length(subjects)
