@@ -8,7 +8,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning= FALSE, fig.width = 10, fig.height = 5)
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning= FALSE, fig.width = 10, fig.height = 5, dpi = 150)
 ```
 
 # load packages
