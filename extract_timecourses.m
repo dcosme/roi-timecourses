@@ -92,7 +92,7 @@ for i = 1:length(subjects)
 end
 
 %% Create a table from data structure
-datatable = cell2table(cell(0,5), 'VariableNames', {'subjectID', 'roi', 'condition', 'tr', 'percentSignal'});
+datatable = cell2table(cell(0,5), 'VariableNames', {'subjectID', 'roi', 'condition', 'tr', 'percentChange'});
 
 for i = 1:numel(subjects)
     for j = 1:numel(rois)
@@ -107,7 +107,7 @@ for i = 1:numel(subjects)
             cond = table(repmat(events(k),ntr,1), 'VariableNames', {'condition'});
             roi = table(repmat(rois(j),ntr,1), 'VariableNames', {'roi'});
             tr = table([1:ntr]', 'VariableNames', {'tr'});
-            tc = table(timecourses.(char(subjects(i))).(char(rois(j))).tc(:,(k)), 'VariableNames', {'percentSignal'});
+            tc = table(timecourses.(char(subjects(i))).(char(rois(j))).tc(:,(k)), 'VariableNames', {'percentChange'});
             
             % Concatenate all tables into one 'DataTable'
             subTable = horzcat(sub, cond, roi, tr, tc);
