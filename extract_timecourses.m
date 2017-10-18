@@ -106,5 +106,6 @@ for i = 1:numel(subjects)
 end
 
 %% Save structure as a .mat file and table as a .csv file
+if ~exist(output_dir,'dir'); mkdir(output_dir); end
 save(fullfile(output_dir,'timecourses'),'timecourses');
 writetable(datatable, fullfile(output_dir,'timecourses.csv'), 'WriteVariableNames', true);
