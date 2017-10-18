@@ -4,8 +4,8 @@ Code for extracting FIR timecourses for ROIS using marsbar.
 For each subject and ROI, a FIR timecourse is extracted and saved as both a matlab structure and a .csv file.
 
 ## Dependencies 
-* spm12
-* marsbar-0.44
+* [spm12](http://www.fil.ion.ucl.ac.uk/spm/software/spm12/)
+* [marsbar-0.44](https://sourceforge.net/projects/marsbar/files/)
 
 ## Key scripts
 * `config.m` = specify variables and pathsin this file
