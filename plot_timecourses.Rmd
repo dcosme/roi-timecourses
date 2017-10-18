@@ -1,0 +1,41 @@
+---
+title: "plot_timecourses"
+author: "Dani Cosme"
+date: "10/17/2017"
+output:
+  md_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning= FALSE)
+```
+
+# load packages
+```{r}
+library(tidyverse)
+library(wesanderson)
+```
+
+# load data
+```{r}
+data = read.csv('/Volumes/psych-cog/dsnlab/FP/BDX_univariate/timecourses/timecourses.csv') %>%
+  mutate(subjectID = as.character(subjectID),
+         condition = as.character(condition))
+```
+
+# plot data
+```{r}
+# set colot palette
+palette = wes_palette("Zissou", 4, type = "continuous")
+
+# filter out conditions of no interest
+plot.data = filter(data, condition %in% c("HighLook", "HighRegulate", "LowLook", "LowRegulate"))
+
+# plot data
+ggplot(plot.data, aes(tr, percentSignal, color = condition)) +
+  geom_smooth(alpha = .25) + 
+  facet_grid(~roi) +
+  scale_color_manual(values=palette) + 
+  labs(x = "TR (2s)", y = "percent signal change")
+```
