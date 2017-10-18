@@ -96,7 +96,7 @@ for i = 1:numel(subjects)
             cond = table(repmat(events(k),ntr,1), 'VariableNames', {'condition'});
             roi = table(repmat(rois(j),ntr,1), 'VariableNames', {'roi'});
             tr = table([1:ntr]', 'VariableNames', {'tr'});
-            tc = table(timecourses.(char(subjects(i))).(char(rois(j))).tc(:,1), 'VariableNames', {'percentSignal'});
+            tc = table(timecourses.(char(subjects(i))).(char(rois(j))).tc(:,(k)), 'VariableNames', {'percentSignal'});
             % Concatenate all tables into one 'DataTable'
             subTable = horzcat(sub, cond, roi, tr, tc);
             datatable = vertcat(datatable, subTable);
